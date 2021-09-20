@@ -14,9 +14,15 @@ import com.springboot.bankingApp.repository.EmployeeRepository;
 @Transactional
 public class EmployeeServiceImpl implements EmployeeService{
 
-	@Autowired
+	
 	EmployeeRepository employeeRepository;
 	
+	@Autowired
+	public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+		super();
+		this.employeeRepository = employeeRepository;
+	}
+
 	@Override
 	public List<Employee> getAllEmployee() {
 		return employeeRepository.findAll();

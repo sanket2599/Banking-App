@@ -21,7 +21,7 @@ public class EmployeeController {
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	@GetMapping(value = { "/","/index" })
+	@GetMapping("/index" )
 	public ModelAndView showHomePage() {
 		System.out.println("Showing Home Page......");
 		return new ModelAndView("index"); 

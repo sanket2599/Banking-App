@@ -10,7 +10,7 @@ import com.springboot.bankingApp.entity.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 	
-	@Query(value = "select e from Employee e where e.empid like ?1 and e.password like ?2")
+	@Query(value = "select e from Employee e where e.empId like ?1 and e.password like ?2")
 	public Employee validateEmployee(long empid, String password);
 	
 	
