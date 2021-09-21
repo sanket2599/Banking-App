@@ -11,7 +11,6 @@
             border: 3px solid #f1f1f1;
             width: 40%;
         }
-        /* Full-width inputs */
         
         input[type=text],
         input[type=password] {
@@ -22,7 +21,7 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
-        /* Set a style for all buttons */
+       
         
         button {
             background-color: #04AA6D;
@@ -33,12 +32,12 @@
             cursor: pointer;
             width: 100%;
         }
-        /* Add a hover effect for buttons */
+        
         
         button:hover {
             opacity: 0.8;
         }
-        /* Center the avatar image inside this container */
+        
         
         .imgcontainer {
             text-align: center;
@@ -46,13 +45,12 @@
             color: green;
             font-size: xx-large;
         }
-        /* Avatar image */
         
         img.avatar {
             width: 100%;
             height: auto;
         }
-        /* Add padding to containers */
+       
         
         .container {
             padding: 16px;
@@ -64,16 +62,16 @@
 </head>
 
 <body>
-	<h2>${errorMsg}</h2>
+<center><h2>${errorMsg}</h2></center>
     <div style="display: flex;justify-content: center;margin-top: 4rem;">
-        <form  method="POST" id="login-form">
+        <form modelAttribute="employee-sign-in" method="POST" id="login-form">
             <div class="imgcontainer">
                 <b>SIGN IN FORM</b>
             </div>
 
             <div class="container">
                 <label path="empId"><b>Username</b></label>
-                <input type="text" name="empId placeholder="Enter Username" required />
+                <input type="text" name="empId" placeholder="Enter Username" required />
 
                 <label path="password"><b>Password</b></form:label>
                 <input name="password" type="password" placeholder="Enter Password" required />

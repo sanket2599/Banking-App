@@ -44,14 +44,15 @@ public class EmployeeController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/signin",method = RequestMethod.POST)
-	public String validateEmployee(ModelMap model , @RequestParam String empId,@RequestParam String password ) {
+	@PostMapping("/signin")
+	public ModelAndView validateEmployee(ModelMap model ,@ModelAttribute("employee-sign-in") Employee employee) {
 		System.out.println("ValidATe Employee......");
-		if(empId=="1" && password=="123") {
-			return ("customer");
+		System.out.println(employee.getEmpId());
+		if(employee.getEmpId()==1 && employee.getPassword().equals("123")) {
+			return new ModelAndView("customer");
 		}
 		model.put("errorMsg","Please provide the correct UserId and Password!!");
-		return ("index");
+		return new ModelAndView("index");
 
 	}
 }
