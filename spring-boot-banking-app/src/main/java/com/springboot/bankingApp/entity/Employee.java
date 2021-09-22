@@ -34,15 +34,15 @@ public class Employee {
 	private String name;
 	
 	@NotNull
+	@Column(name = "username", nullable = false)
+	private String username;
+	
+	@NotNull
 	@Column(name = "password", nullable = false)
 	private String password;
 	
 	@NotNull
 	@Column(name = "designation", nullable = false)
 	private String designation;
-	
-	@NotNull
-	@Column(name = "balance", nullable = false)
-	private long balance;
 	
 }

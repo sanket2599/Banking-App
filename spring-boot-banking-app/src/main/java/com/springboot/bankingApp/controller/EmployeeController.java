@@ -34,6 +34,12 @@ public class EmployeeController {
 		System.out.println("Showing Home Page......");
 		return new ModelAndView("index");
 	}
+	
+	@GetMapping("/signup")
+	public ModelAndView showSignUpPage() {
+		System.out.println("Showing Sign Up Page......");
+		return new ModelAndView("signup");
+	}
 
 	@GetMapping("/employees")
 	public ModelAndView showAllEmployees() {
@@ -47,11 +53,18 @@ public class EmployeeController {
 	@PostMapping("/signin")
 	public ModelAndView validateEmployee(ModelMap model ,@ModelAttribute("employee-sign-in") Employee employee) {
 		System.out.println("ValidATe Employee......");
-		System.out.println(employee.getEmpId());
-		if(employee.getEmpId()==1 && employee.getPassword().equals("123")) {
+		System.out.println(employee.getUsername());
+		if(employee.getUsername().equals("1") && employee.getPassword().equals("123")) {
 			return new ModelAndView("customer");
 		}
 		model.put("errorMsg","Please provide the correct UserId and Password!!");
+		return new ModelAndView("index");
+
+	}
+	@PostMapping("/signup")
+	public ModelAndView validateSignup(ModelMap model ,@ModelAttribute("employee-sign-up") Employee employee) {
+		System.out.println("ValidATe Signup......");
+		System.out.println(employee.getDesignation());
 		return new ModelAndView("index");
 
 	}

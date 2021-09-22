@@ -21,7 +21,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "manager")
+@Table(name = "Manager")
 public class Manager {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

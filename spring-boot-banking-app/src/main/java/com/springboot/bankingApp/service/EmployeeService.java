@@ -7,6 +7,7 @@ import com.springboot.bankingApp.entity.Employee;
 public interface EmployeeService {
 	public List<Employee> getAllEmployee();
 	public Employee getEmployeeByEmpId(long id);
+	public Employee getEmployeeByUsername(String username);
 	public void saveOrUpdateEmployee(Employee employee);
 	public void deleteEmployee(long id);
 	public String getEmployeePassword(long empid);

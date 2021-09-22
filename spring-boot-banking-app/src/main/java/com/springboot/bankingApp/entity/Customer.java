@@ -21,7 +21,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "customer")
+@Table(name = "Customer")
 public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,4 +38,12 @@ public class Customer {
 	@NotNull
 	@Column(name = "balance", nullable = false)
 	private long balance;
+	
+	@NotNull
+	@Column(name = "Update", nullable = false)
+	private String update;
+	
+	@NotNull
+	@Column(name = "Delete", nullable = false)
+	private String delete;
 }

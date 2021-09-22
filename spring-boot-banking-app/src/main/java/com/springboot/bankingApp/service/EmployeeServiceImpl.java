@@ -58,4 +58,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeRepository.validateEmployee(empid, password);
 	}
 
+	@Override
+	public Employee getEmployeeByUsername(String username) {
+		// TODO Auto-generated method stub
+		return employeeRepository.validateEmp(username);
+	}
+
 }

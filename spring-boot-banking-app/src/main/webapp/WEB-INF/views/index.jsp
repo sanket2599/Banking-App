@@ -38,7 +38,6 @@
             opacity: 0.8;
         }
         
-        
         .imgcontainer {
             text-align: center;
             margin: 24px 0 12px 0;
@@ -64,21 +63,23 @@
 <body>
 <center><h2>${errorMsg}</h2></center>
     <div style="display: flex;justify-content: center;margin-top: 4rem;">
-        <form modelAttribute="employee-sign-in" method="POST" id="login-form">
+        <form modelAttribute="employee-sign-in" method="POST" action="/employee/customers" id="login-form">
             <div class="imgcontainer">
                 <b>SIGN IN FORM</b>
             </div>
 
             <div class="container">
-                <label path="empId"><b>Username</b></label>
-                <input type="text" name="empId" placeholder="Enter Username" required />
+                <label path="username"><b>Username</b></label>
+                <input type="text" name="username" placeholder="Enter Username" required />
 
                 <label path="password"><b>Password</b></form:label>
                 <input name="password" type="password" placeholder="Enter Password" required />
-
+                <div style="display: flex;justify-content: space-between;align-items: center;">
                 <label>
                 <input type="checkbox" checked="checked" name="remember" /> Remember me
               </label>
+              <div>Don't have an Account?<a href="signup" style="color: green;">SignUp</a></div>
+            </div>
                 <button type="submit">Login</button>
 
             </div>
