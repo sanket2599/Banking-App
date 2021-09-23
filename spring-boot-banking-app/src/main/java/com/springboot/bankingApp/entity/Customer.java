@@ -40,10 +40,10 @@ public class Customer {
 	private long balance;
 	
 	@NotNull
-	@Column(name = "Update", nullable = false)
+	@Column(name = "updat", nullable = false)
 	private String update;
 	
 	@NotNull
-	@Column(name = "Delete", nullable = false)
+	@Column(name = "delet", nullable = false)
 	private String delete;
 }

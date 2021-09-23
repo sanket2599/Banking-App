@@ -11,13 +11,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springboot.bankingApp.entity.Customer;
 import com.springboot.bankingApp.entity.Employee;
+import com.springboot.bankingApp.service.CustomerService;
 import com.springboot.bankingApp.service.EmployeeService;
 
 @Controller
@@ -25,6 +28,9 @@ import com.springboot.bankingApp.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
+	
+	@Autowired
+	CustomerService customerService;
 
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -46,10 +52,32 @@ public class EmployeeController {
 		System.out.println("Showing Employee list.......");
 		ModelAndView mav = new ModelAndView("employees");
 		List<Employee> employeeList = employeeService.getAllEmployee();
-		mav.addObject("employeeList", employeeList); // Set the attribute as "employeeList"
+		mav.addObject("employeeList", employeeList); 
 		return mav;
 	}
-
+	
+	@GetMapping("/customers")
+	public String showAllCustomers(ModelMap map) {
+		System.out.println("Showing Customer list.......");
+		map.addAttribute("customerList", customerService.getAllCustomers());
+        return "customer";
+	}
+	
+	@GetMapping("/update/{eid}")
+	public String updateCustomer(ModelMap map ,@PathVariable long eid) {
+		System.out.println("Showing Customer list.......");
+		
+		map.addAttribute("custList",customerService.getCustomerByCusId(eid));
+        return "customerUpdate";
+	}
+	
+	@PostMapping("/update")
+	public String updateCustomerDb(ModelMap map ,@ModelAttribute ("employee-update") Customer c) {
+		System.out.println("Updating Customer list.......",c.getAddress());
+		customerService.updateCustomer(c.getCusId(),c.getAddress());
+        return "customer";
+	}
+	
 	@PostMapping("/signin")
 	public ModelAndView validateEmployee(ModelMap model ,@ModelAttribute("employee-sign-in") Employee employee) {
 		System.out.println("ValidATe Employee......");

@@ -8,6 +8,7 @@ public interface CustomerService {
 	public List<Customer> getAllCustomers();
 	public Customer getCustomerByCusId(long id);
 	public void saveOrUpdateCustomer(Customer customer);
+	public void updateCustomer(long id,String address);
 	public void deleteCustomer(long id);
 	
 }
