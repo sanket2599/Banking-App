@@ -63,7 +63,7 @@
 <body>
 <center><h2>${errorMsg}</h2></center>
     <div style="display: flex;justify-content: center;margin-top: 4rem;">
-        <form modelAttribute="employee-sign-in" method="POST" action="/employee/customers" id="login-form">
+        <form modelAttribute="employee-sign-in" method="POST" id="login-form">
             <div class="imgcontainer">
                 <b>SIGN IN FORM</b>
             </div>

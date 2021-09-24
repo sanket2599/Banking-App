@@ -1,57 +1,42 @@
-package com.springboot.bankingApp.entity;
+package com.springboot.bankingApp.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-@Setter
+
 @Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @RequiredArgsConstructor
-@ToString
-@Entity
-@Table(name = "Customer")
-public class Customer {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long cusId;
+public class AddCustomer {
 	
-	@NotNull
 	@NonNull
+	@NotNull(message = "Field should not be blank")
 	@Column(name = "name", nullable = false)
 	private String name;
 	
 	@NonNull
-	@NotNull
+	@NotNull(message = "Field should not be blank")
 	@Column(name = "address", nullable = false)
 	private String address;
-
+	
 	@NonNull
-	@NotNull
+	@NotNull(message = "Field should not be blank")
 	@Column(name = "balance", nullable = false)
 	private long balance;
 	
-	@NonNull
 	@NotNull
 	@Column(name = "updat", nullable = false)
-	private String update;
+	private final String update="Update";
 	
-	@NonNull
 	@NotNull
 	@Column(name = "delet", nullable = false)
-	private String delete;
+	private final String delete="Delete";
 }

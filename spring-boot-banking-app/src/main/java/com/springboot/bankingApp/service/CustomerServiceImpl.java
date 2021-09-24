@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springboot.bankingApp.dto.AddCustomer;
 import com.springboot.bankingApp.entity.Customer;
 import com.springboot.bankingApp.repository.CustomerRepository;
 
@@ -35,9 +36,10 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public void saveOrUpdateCustomer(Customer customer) {
+	public void saveOrUpdateCustomer(AddCustomer add) {
 		// TODO Auto-generated method stub
-		customerRepository.save(customer);
+		
+		customerRepository.save(new Customer(add.getName(),add.getAddress(),add.getBalance(),add.getUpdate(),add.getDelete()));
 	}
 
 	@Override
@@ -53,6 +55,34 @@ public class CustomerServiceImpl implements CustomerService{
 		c.setAddress(address);
 		customerRepository.save(c);
 		
+	}
+
+	@Override
+	public void transfer(long fromId, long toId, long amount) {
+		// TODO Auto-generated method stub
+		Customer c1=getCustomerByCusId(fromId);
+		c1.setBalance((c1.getBalance()-amount));
+		customerRepository.save(c1);
+		
+		Customer c2=getCustomerByCusId(toId);
+		c2.setBalance(c2.getBalance()+amount);
+		customerRepository.save(c2);
+	}
+
+	@Override
+	public void deposit(long toId, long amount) {
+		// TODO Auto-generated method stub
+		Customer c1=getCustomerByCusId(toId);
+		c1.setBalance((c1.getBalance()+amount));
+		customerRepository.save(c1);
+	}
+
+	@Override
+	public void withdraw(long fromId, long amount) {
+		// TODO Auto-generated method stub
+		Customer c1=getCustomerByCusId(fromId);
+		c1.setBalance((c1.getBalance()-amount));
+		customerRepository.save(c1);
 	}
 
 }

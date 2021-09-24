@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Employee-SignUp</title>
+    <title>Withdraw Page</title>
     <style>
         * {
             box-sizing: border-box
@@ -60,25 +60,18 @@
 </head>
 
 <body>
-    <form modelAttribute="employee-update" method="POST" style="border:1px solid #ccc">
+    <form modelAttribute="withdraw" method="POST"  style="border:1px solid #ccc">
         <div class="container">
-            <h1>Update Form</h1>
+            <h1>Withdraw Page</h1>
             <hr>
-            <label for="cusId"><b>Customer Id</b></label>
-            <input type="number" value=${custList.cusId} name="cusId" readonly>
-            <label for="name"><b>Name</b></label>
-            <input type="text" value=${custList.name} name="name" readonly>
-            <label for="address"><b>Address</b></label>
-            <input type="text" name="address" value=${custList.address}>
+            <label for="toAccId"><b>Withdraw From Account Number</b></label>
+            <input type="number" name="fromAccId" >
+            <label for="amount"><b>Amount</b></label>
+            <input type="number" name="amount" >
 
-            <label for="balance"><b>Balance</b></label>
-            <input type="number" name="balance" value=${custList.balance} readonly>
 
             <div class="clearfix">
-                <a href="/employee/customers">Cancel</a>
-            </div>
-            <div class="clearfix">
-                <button class="signupbtn">Update</button>
+                <button class="signupbtn">Withdraw</button>
             </div>
         </div>
     </form>

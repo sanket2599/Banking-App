@@ -12,6 +12,7 @@ import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -44,5 +45,11 @@ public class Employee {
 	@NotNull
 	@Column(name = "designation", nullable = false)
 	private String designation;
+	
+	@Column(name = "updat", nullable = false)
+	private String update="Update";
+	
+	@Column(name = "delet", nullable = false)
+	private String delete="Delete";
 	
 }
