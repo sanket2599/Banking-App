@@ -29,6 +29,8 @@ public class ManagerController {
 		System.out.println("Showing Employees list.......");
 		map.addAttribute("customerList", customerService.getAllCustomers());
 		map.addAttribute("employeeList",employeeService.getAllEmployee());
+		System.out.println(employeeService.getAllEmployee());
+		System.out.println(customerService.getAllCustomers());
 		return "employee-customer";
 	}
 }

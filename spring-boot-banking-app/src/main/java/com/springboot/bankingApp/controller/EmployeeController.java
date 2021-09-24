@@ -94,7 +94,7 @@ public class EmployeeController {
 
 	@GetMapping("/clerks")
 	public String showAllClerks(ModelMap map) {
-		System.out.println("Showing Customer list.......");
+		System.out.println("Showing Clerks list.......");
 		map.addAttribute("employeeList", employeeService.getAllEmployee());
 		return "clerk";
 	}
