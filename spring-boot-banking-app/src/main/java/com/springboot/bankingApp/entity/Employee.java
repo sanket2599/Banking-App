@@ -43,6 +43,10 @@ public class Employee {
 	private String password;
 	
 	@NotNull
+	@Column(name = "address", nullable = false)
+	private String address;
+	
+	@NotNull
 	@Column(name = "designation", nullable = false)
 	private String designation;
 	

@@ -17,7 +17,7 @@
                 height: 20rem;
                 overflow: auto;
             }
-            
+
             li {
                 border-radius: 3px;
                 padding: 15px 20px;
@@ -25,42 +25,59 @@
                 justify-content: space-between;
                 margin-bottom: 25px;
             }
-            
+
             .table-header {
                 background-color: #95A5A6;
                 font-size: 14px;
                 text-transform: uppercase;
                 letter-spacing: 0.03em;
             }
-            
+
             .table-row {
                 background-color: #ffffff;
                 box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
             }
-            
+
             .col-1 {
                 flex-basis: 20%;
             }
-            
+
             .col-2 {
                 flex-basis: 40%;
             }
-            
+
             .col-3 {
                 flex-basis: 25%;
             }
-            
+
             .col-4 {
                 flex-basis: 25%;
             }
-            
+
             .navbar {
                 overflow: hidden;
                 background-color: #95A5A6;
                 font-family: Arial;
             }
+
+            .navbar_cust{
+                overflow: hidden;
+                background-color: #95A5A6;
+                font-family: Arial;
+                width: 90%;
+            }
+
+            .navbar_cust a {
+                float: left;
+                font-size: 16px;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
             /* Links inside the navbar */
-            
+
             .navbar a {
                 float: left;
                 font-size: 16px;
@@ -106,7 +123,7 @@
 
         <div id="home" style="display: block;">
             <br>
-            <img src="bankImg.jpg" height="100" />
+            <!-- <img src="bankImg.jpg" height="100" /> -->
         </div>
 
         <div id="clerk">
@@ -116,6 +133,7 @@
                         <div class="col col-1 ">Clerk Id</div>
                         <div class="col col-2 ">Name</div>
                         <div class="col col-3 ">Username</div>
+                        <div class="col col-3 ">Address</div>
                         <div class="col col-4 ">Designation</div>
                         <div class="col col-4 "></div>
                         <div class="col col-4 "></div>
@@ -126,10 +144,13 @@
                             <div class="col col-1 ">${emp.empId}</div>
                             <div class="col col-2 ">${emp.name}</div>
                             <div class="col col-3 ">${emp.username}</div>
+                            <div class="col col-3 ">${emp.address}</div>
                             <div class="col col-4 ">${emp.designation}</div>
-                            <div class="col col-4 "><a href="${pageContext.request.contextPath}/employee/clerk/update/${emp.empId} ">Update</a>
+                            <div class="col col-4 "><a
+                                    href="${pageContext.request.contextPath}/employee/clerk/update/${emp.empId} ">Update</a>
                             </div>
-                            <div class="col col-4 "><a href="${pageContext.request.contextPath}/employee/clerk/delete/${emp.empId} ">Delete</a>
+                            <div class="col col-4 "><a
+                                    href="${pageContext.request.contextPath}/employee/clerk/delete/${emp.empId} ">Delete</a>
                             </div>
                         </li>
                     </c:forEach>
@@ -139,6 +160,15 @@
         </div>
 
         <div id="customer">
+            <br>
+            <center>
+                <div class="navbar_cust">
+                    <a href="/employee/manager/transfer">Transfer</a>
+                    <a href="/employee/manager/deposit">Deposit</a>
+                    <a href="/employee/manager/withdraw">Withdraw</a>
+                    <a href="/employee/manager/addCustomer">Add Customer</a>
+                </div>
+            </center>
             <div class="container" style="display: block;">
                 <ul class=" responsive-table ">
                     <li class="table-header ">
@@ -156,8 +186,12 @@
                             <div class="col col-2 ">${cust.name}</div>
                             <div class="col col-3 ">${cust.balance}</div>
                             <div class="col col-4 ">${cust.address}</div>
-                            <div class="col col-4 "><a href="${pageContext.request.contextPath}/employee/update/${cust.cusId} ">Update</a></div>
-                            <div class="col col-4 "><a href="${pageContext.request.contextPath}/employee/delete/${cust.cusId} ">Delete</a></div>
+                            <div class="col col-4 "><a
+                                    href="${pageContext.request.contextPath}/employee/customer/update/${cust.cusId} ">Update</a>
+                            </div>
+                            <div class="col col-4 "><a
+                                    href="${pageContext.request.contextPath}/employee/customer/delete/${cust.cusId} ">Delete</a>
+                            </div>
                         </li>
                     </c:forEach>
 

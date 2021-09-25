@@ -64,4 +64,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeRepository.validateEmp(username);
 	}
 
+	@Override
+	public void updateClerkAddress(long id, String address) {
+		// TODO Auto-generated method stub
+		Employee e=getEmployeeByEmpId(id);
+		e.setAddress(address);
+		employeeRepository.save(e);
+		
+	}
+
 }

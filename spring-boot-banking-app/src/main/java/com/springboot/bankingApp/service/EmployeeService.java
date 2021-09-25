@@ -12,4 +12,5 @@ public interface EmployeeService {
 	public void deleteEmployee(long id);
 	public String getEmployeePassword(long empid);
 	public Employee checkLogin(long empid, String password);
+	public void updateClerkAddress(long id,String address);
 }
