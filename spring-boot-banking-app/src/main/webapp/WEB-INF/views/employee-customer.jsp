@@ -118,7 +118,8 @@
             <a href="#home" onclick="myHome()">Home</a>
             <a href="#clerk" onclick="myClerks()">View Clerks</a>
             <a href="#customer" onclick="myCustomer()">View Customers</a>
-            <a href="" style="padding-left: 55rem;">Log Out</a>
+            <a href="/employee/manager/addClerk">Add Clerk</a>
+            <a href="" style="padding-left: 50rem;">Log Out</a>
         </div>
 
         <div id="home" style="display: block;">

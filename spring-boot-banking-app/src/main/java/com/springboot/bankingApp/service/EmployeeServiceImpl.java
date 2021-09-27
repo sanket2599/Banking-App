@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springboot.bankingApp.dto.AddClerk;
 import com.springboot.bankingApp.entity.Employee;
 import com.springboot.bankingApp.repository.EmployeeRepository;
 
@@ -34,11 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeRepository.getById(id);
 	}
 
-	@Override
-	public void saveOrUpdateEmployee(Employee employee) {
-		// TODO Auto-generated method stub
-		employeeRepository.save(employee);
-	}
+	
 
 	@Override
 	public void deleteEmployee(long id) {
@@ -71,6 +68,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 		e.setAddress(address);
 		employeeRepository.save(e);
 		
+	}
+
+	@Override
+	public void saveOrUpdateEmployee(AddClerk add) {
+		// TODO Auto-generated method stub
+		employeeRepository.save(new Employee( add.getName(),add.getUsername(),add.getPassword(),add.getAddress(),add.getDesignation()));
 	}
 
 }

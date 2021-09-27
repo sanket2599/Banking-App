@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springboot.bankingApp.dto.AddClerk;
 import com.springboot.bankingApp.dto.AddCustomer;
 import com.springboot.bankingApp.dto.Deposit;
 import com.springboot.bankingApp.dto.Transfer;
 import com.springboot.bankingApp.dto.Withdraw;
 import com.springboot.bankingApp.entity.Customer;
 import com.springboot.bankingApp.entity.Employee;
+import com.springboot.bankingApp.repository.EmployeeRepository;
 import com.springboot.bankingApp.service.CustomerService;
 import com.springboot.bankingApp.service.EmployeeService;
 import com.springboot.bankingApp.service.ManagerService;
@@ -165,6 +167,23 @@ public class ManagerController {
 			return "manager/addCustomer";
 		}
 		customerService.saveOrUpdateCustomer(addCustomer);
+		return "redirect:../employees-customers";
+	}
+	
+	@GetMapping("/manager/addClerk")
+	public String addClerk(ModelMap map) {
+		System.out.println("Add Clerk.. Page.......");
+		map.addAttribute("addClerk", new AddClerk());
+		return "addClerk";
+	}
+
+	@PostMapping("/manager/addClerk")
+	public String addClerk(@Valid @ModelAttribute(value = "addClerk") AddClerk addClerk,
+			BindingResult result) {
+		if (result.hasErrors()) {
+			return "manager/addClerk";
+		}
+		employeeService.saveOrUpdateEmployee(addClerk);
 		return "redirect:../employees-customers";
 	}
 
