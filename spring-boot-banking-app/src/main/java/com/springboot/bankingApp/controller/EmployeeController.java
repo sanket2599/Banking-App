@@ -70,7 +70,7 @@ public class EmployeeController {
 			if (employee.getUsername().equals(managerDetails.getUsername())
 					&& employee.getPassword().equals(managerDetails.getPassword())
 					&& managerDetails.getDesignation().equals("Manager")) {
-				return "redirect:../employees-customers";
+				return "redirect:employees-customers";
 			}
 		}
 		model.put("errorMsg", "Please provide the correct UserId and Password!!");
